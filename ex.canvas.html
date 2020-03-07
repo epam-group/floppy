@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint"
+        content="width-device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA=Compatible"
+        content="ie=edge">
+        <title>Canvas</title>
+    </head>
+    <body> 
+        <!--добавляем канвас, его размеры и обводку-->
+        <canvas id="myCanvas" width="200" height="100" 
+            style="border:1px solid #000000;"> 
+        </canvas>
+
+    <script> //отрисовка линии на графике
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var grd = ctx.createLinearGradient(0,0,200,100);
+grd.addColorStop(0, "yellow");
+grd.addColorStop(1, "pink");
+
+ctx.fillStyle = grd; //оболакиваем наш канвас градиентом
+ctx.fillRect(0,0,200,100);
+    </script>
+    </body>
+</html>
