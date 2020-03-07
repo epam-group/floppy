@@ -44,6 +44,7 @@ var xPos = 10;
 var yPos = 150;
 var grav = 1.5;
 
+//отрисовка пайпов
 function draw() {
  ctx.drawImage(bg, 0, 0);
 
