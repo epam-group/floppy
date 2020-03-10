@@ -20,13 +20,13 @@ var score_audio = new Audio();
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-var gap = 90;
+var gap = 90;  //размер дырки между трубами
 
 // При нажатии на какую-либо кнопку
 document.addEventListener("keydown", moveUp);
 //поднимает на 25 по Y и производит звук при нажатии на кнопку
 function moveUp() {
- yPos -= 25;
+ yPos -= 25; //-= при нажатии прыгает вверх, += при нажатии вниз прыгате
  fly.play();
 }
 
@@ -40,9 +40,9 @@ pipe[0] = {
 
 var score = 0;
 // Позиция птички
-var xPos = 10;
+var xPos = 15;
 var yPos = 150;
-var grav = 1.5;
+var grav = 2.0;
 
 //отрисовка пайпов
 function draw() {
@@ -66,8 +66,8 @@ function draw() {
  && xPos <= pipe[i].x + pipeUp.width
  && (yPos <= pipe[i].y + pipeUp.height
  || yPos + bird.height >= pipe[i].y + pipeUp.height + gap) || yPos + bird.height >= cvs.height - fg.height) {
-     alert("Your score is: " +score)
      location.reload(); // Перезагрузка страницы
+     alert("Your score is: " +score);
  }
 
  if(pipe[i].x == 5) {
@@ -79,10 +79,10 @@ function draw() {
  ctx.drawImage(fg, 0, cvs.height - fg.height);
  ctx.drawImage(bird, xPos, yPos);
 
- yPos += grav;
+ yPos += grav; //-=grav полет вверх, +=grav полет вниз
 // графа счета игрока
  ctx.fillStyle = "white";
- ctx.font = "26px Verdana";
+ ctx.font = "30px Verdana";
  ctx.fillText("Score: " + score, 10, cvs.height - 20);
 
  requestAnimationFrame(draw);
