@@ -84,7 +84,6 @@ function draw() {
  ctx.fillStyle = "white";
  ctx.font = "30px Verdana";
  ctx.fillText("Score: " + score, 10, cvs.height - 20);
-
  requestAnimationFrame(draw);
 }
 
